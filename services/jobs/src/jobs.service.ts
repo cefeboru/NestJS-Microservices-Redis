@@ -1,7 +1,9 @@
+import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import * as queryString from 'querystring';
 import { Job } from './job.model';
 
+@Injectable()
 export class JobsService {
   private baseApiPath = 'https://jobs.github.com/positions.json';
 
