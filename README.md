@@ -22,3 +22,4 @@ yarn start:dev
 - [ ] Store searches into DB
 - [ ] Add unit tests
 - [ ] Add cors configuration
+- [ ] Add Swagger docs
