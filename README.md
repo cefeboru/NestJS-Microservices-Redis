@@ -23,3 +23,4 @@ yarn start:dev
 - [ ] Add unit tests
 - [ ] Add cors configuration
 - [ ] Add Swagger docs
+- [ ] Dockerize Application
