@@ -5,7 +5,7 @@
     "username": "root",
     "password": "root",
     "database": "test",
-    "entities": ["dist/**/*.entity.{ts,js}"],
+    "entities": ["src/**/*.entity.{ts,js}"],
     "migrations": ["src/migrations/**.ts"],
     "cli": {
         "migrationsDir": "src/migrations"
