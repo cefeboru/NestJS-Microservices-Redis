@@ -1,4 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
+import { IpAddress } from './ipAddress.decorator';
 import { Job } from './job.model';
 import { JobsService } from './jobs.service';
 import { SearchesService } from './searches.service';
@@ -15,6 +16,7 @@ export class AppController {
     @Query('description') description: string,
     @Query('location') city: string,
     @Query('page') page = 0,
+    @IpAddress() ipAddress,
   ): Promise<PaginatedResults<Job>> {
     const jobs = await this.jobsService.getJobs(page, description, city);
     if (description || city) {
@@ -22,7 +24,7 @@ export class AppController {
         new Date(),
         description,
         city,
-        '127.0.01',
+        ipAddress,
       );
     }
     return {
