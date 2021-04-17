@@ -19,7 +19,7 @@ yarn start:dev
 
 # Todo List:
 - [x] Get IP from jobs search request
-- [ ] Store searches into DB
+- [x] Store searches into DB
 - [ ] Add unit tests
 - [ ] Add cors configuration
 - [ ] Add Swagger docs

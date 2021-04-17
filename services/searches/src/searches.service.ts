@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { Search } from './search.entity';
-
-const searches: Array<Search> = [];
 
 @Injectable()
 export class SearchesService {
+  constructor(
+    @InjectRepository(Search)
+    private searchesRepository: Repository<Search>
+  ) {}
   async saveSearchLog(
     time: Date,
     description: string,
@@ -12,7 +16,7 @@ export class SearchesService {
     ipAddress: string,
   ): Promise<Search> {
     const search = new Search(time, description, location, ipAddress);
-    searches.push(search);
+    await this.searchesRepository.save(search);
     return search;
   }
 }
