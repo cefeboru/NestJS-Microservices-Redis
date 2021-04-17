@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { Search } from './search.model';
+import { Search } from './search.entity';
 
 const searches: Array<Search> = [];
 
 @Injectable()
 export class SearchesService {
   async saveSearchLog(
-    time: number,
+    time: Date,
     description: string,
     location: string,
     ipAddress: string,
