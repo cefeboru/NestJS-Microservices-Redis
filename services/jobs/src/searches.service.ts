@@ -17,16 +17,16 @@ export class SearchesService {
       },
     });
   }
-  public logSearch(
+  public async logSearch(
     time: Date,
     description: string,
-    location: string,
+    city: string,
     ipAddress,
   ) {
-    return this.client.emit('jobs_searched', {
+    await this.client.emit('jobs_searched', {
       time,
       description,
-      location,
+      location: city,
       ipAddress,
     });
   }

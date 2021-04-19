@@ -17,7 +17,7 @@ export class Search {
     time: Date,
     description: string,
     location: string,
-    ipAddress: string
+    ipAddress: string,
   ) {
     this.time = time;
     this.description = description;

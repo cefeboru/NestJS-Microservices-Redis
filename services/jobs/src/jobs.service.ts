@@ -15,7 +15,7 @@ export class JobsService {
     const query = queryString.encode({
       page,
       ...(description && { description }),
-      ...(city && { city }),
+      ...(city && { city: city }),
     });
     const response = await axios.get(`${this.baseApiPath}?${query}`);
 

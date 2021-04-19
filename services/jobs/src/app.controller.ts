@@ -12,10 +12,10 @@ export class AppController {
   ) {}
 
   @Get()
-  async getProducts(
-    @Query('description') description: string,
-    @Query('location') city: string,
+  async getJobs(
     @Query('page') page = 0,
+    @Query('description') description: string,
+    @Query('city') city: string,
     @IpAddress() ipAddress,
   ): Promise<PaginatedResults<Job>> {
     const jobs = await this.jobsService.getJobs(page, description, city);
@@ -30,7 +30,7 @@ export class AppController {
     return {
       page,
       items: jobs,
-      size: 50,
+      pageSize: 50,
     };
   }
 }
