@@ -17,10 +17,13 @@ There will be 2 services:
 yarn start:dev
 ```
 
+# Swagger docs
+Once you start running the server (locally) you shall be able to see the swagger docs at:
+http://localhost:3000
+
 # Todo List:
 - [x] Get IP from jobs search request
 - [x] Store searches into DB
-- [ ] Add unit tests
-- [ ] Add cors configuration
-- [ ] Add Swagger docs
+- [x] Add unit tests
+- [x] Add Swagger docs
 - [ ] Dockerize Application

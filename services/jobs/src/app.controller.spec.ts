@@ -51,12 +51,11 @@ describe('AppController', () => {
       const getJobsSpy = jest
         .spyOn(jobsService, 'getJobs')
         .mockResolvedValueOnce(mockedJobs);
-      const result = await appController.getJobs(
+      const result = await appController.getJobs(clientIP, {
         page,
         description,
         city,
-        clientIP,
-      );
+      });
       expect(getJobsSpy).toHaveBeenCalledWith(page, description, city);
       expect(result).toEqual({
         page,
@@ -70,7 +69,7 @@ describe('AppController', () => {
       const logSearchSpy = jest
         .spyOn(searchesService, 'logSearch')
         .mockImplementationOnce(() => Promise.resolve());
-      await appController.getJobs(page, description, city, clientIP);
+      await appController.getJobs(clientIP, { page, description, city });
       expect(logSearchSpy).toHaveBeenCalledWith(
         new Date(),
         description,
