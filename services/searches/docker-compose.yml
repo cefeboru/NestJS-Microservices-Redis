@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  searches:
+    container_name: searches_consumer
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: npm run start:debug
+    networks:
+      - be
+
   db:
     image: mysql:5.7
     volumes:
