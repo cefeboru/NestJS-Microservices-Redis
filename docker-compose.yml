@@ -11,7 +11,10 @@ services:
     command: npm run start:debug
     ports:
         - 3000:3000
-    depends_on: [searches]
+    depends_on: [searches, redis]
+    environment:
+      SEARCHES_HOST: searches
+      REDIS_HOST: redis
     networks:
       - be
 
@@ -23,11 +26,14 @@ services:
       dockerfile: Dockerfile
       #target: development
     command: npm run start:debug
-    depends_on: [db]
+    depends_on: [searches_db, redis]
+    environment:
+      DB_HOST: searches_db
+      REDIS_HOST: redis
     networks:
       - be
 
-  db:
+  searches_db:
     image: mysql:5.7
     volumes:
       - mysql_data:/var/lib/mysql
@@ -36,6 +42,13 @@ services:
       MYSQL_DATABASE: test
     ports:
       - 3306:3306
+    networks:
+      - be
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
     networks:
       - be
 

@@ -3,10 +3,11 @@ import { AppController } from './app.controller';
 import { SearchesService } from './searches.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Search } from './search.entity';
+import ormconfig from '../ormconfig.js';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot(ormconfig),
     TypeOrmModule.forFeature([Search])
   ],
   controllers: [AppController],

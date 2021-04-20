@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {
+  ClientOptions,
   ClientProxy,
   ClientProxyFactory,
   Transport,
@@ -9,13 +10,15 @@ import {
 export class SearchesService {
   private client: ClientProxy;
   constructor() {
-    this.client = ClientProxyFactory.create({
-      transport: Transport.TCP,
+    const REDIS_HOST = process.env.REDIS_HOST || '127.0.0.1';
+    const REDIS_PORT = process.env.REDIS_PORT || 6379;
+    const clientOptions: ClientOptions = {
+      transport: Transport.REDIS,
       options: {
-        host: '127.0.0.1',
-        port: 8877,
+        url: `redis://${REDIS_HOST}:${REDIS_PORT}`
       },
-    });
+    };
+    this.client = ClientProxyFactory.create(clientOptions);
   }
   public async logSearch(
     time: Date,
