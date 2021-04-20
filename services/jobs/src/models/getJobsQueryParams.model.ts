@@ -1,7 +1,7 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { CITY, DESCRIPTION } from './job.model';
 import { IsEnum, IsOptional } from 'class-validator';
-import { getEnumValues } from 'src/util';
+import { getEnumValues } from '../util';
 
 export class GetJobsQueryParams {
   @ApiPropertyOptional()

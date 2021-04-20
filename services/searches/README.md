@@ -17,18 +17,6 @@ After making changes to any entity, typeorm can automatically generate migration
 ```bash
 $ yarn migrations:generate -n MigrationName
 ```
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
 
 ## Test
 
