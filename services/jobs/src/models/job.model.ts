@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class Job {
   @ApiProperty()
@@ -23,8 +23,7 @@ export class Job {
   public how_to_apply: string;
   @ApiProperty()
   public company_logo: string;
-  
-  
+
   constructor(
     id: string,
     type: string,
@@ -50,4 +49,22 @@ export class Job {
     this.how_to_apply = how_to_apply;
     this.company_logo = company_logo;
   }
+}
+
+export enum DESCRIPTION {
+  Javascript,
+  Java,
+  Python,
+  React,
+  Ruby,
+  Go,
+}
+
+export enum CITY {
+  Chicago,
+  Phoenix,
+  London,
+  Beijing,
+  Paris,
+  SanFrancisco = 'San Francisco',
 }

@@ -1,9 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { Job } from './job.model';
-import { JobsService } from './jobs.service';
-import { SearchesService } from './searches.service';
+import { Job } from './models/job.model';
+import { JobsService } from './services/jobs.service';
+import { SearchesService } from './services/searches.service';
 import mockDate from 'mockdate';
+
+jest.mock('./services/jobs.service');
+jest.mock('./services/searches.service');
 
 describe('AppController', () => {
   let appController: AppController;
@@ -12,6 +15,8 @@ describe('AppController', () => {
 
   beforeEach(async () => {
     mockDate.set(1434319925275);
+    jobsService = jest.fn() as any;
+    searchesService = jest.fn() as any;
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
       providers: [JobsService, SearchesService],
