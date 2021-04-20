@@ -12,18 +12,22 @@ There will be 2 services:
 
  By splitting it into micro services, multiple teams can work together and also we decouple the logic making both services maintainable and easy to test
 
-# Running all microservices
+# Project Details
+## Requirements:
+ - docker && docker-compose
+ - Nodejs >= 12.x
+## Starting all microservices (Jobs, Searches, Mysql and Redis)
 ```
-yarn start:dev
+docker-compose up
 ```
-
-# Swagger docs
+## Swagger docs
 Once you start running the server (locally) you shall be able to see the swagger docs at:
 http://localhost:3000
+
 
 # Todo List:
 - [x] Get IP from jobs search request
 - [x] Store searches into DB
 - [x] Add unit tests
 - [x] Add Swagger docs
-- [ ] Dockerize Application
+- [x] Dockerize Application
