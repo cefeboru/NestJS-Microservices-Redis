@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: npm run start:debug
+    command: node dist/main
     environment:
       DB_HOST: searches_db
       REDIS_HOST: 
